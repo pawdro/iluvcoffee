@@ -1,0 +1,4 @@
+# -*- restclient -*-
+# Requests for REST Client mode in emacs
+
+GET http://localhost:3000
