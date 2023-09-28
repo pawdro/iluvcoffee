@@ -2,7 +2,18 @@
 # Requests for REST Client mode in emacs
 
 GET http://localhost:3000
-#
+
+# GET all coffees
 GET http://localhost:3000/coffees
-#
+
+# Get single coffee
 GET http://localhost:3000/coffees/1
+
+# Post a coffee
+POST http://localhos:3000/coffees
+Content-Type: application/json
+
+{
+"name": "Old Florida Roast",
+"brand": "Buddy Brew"
+}
