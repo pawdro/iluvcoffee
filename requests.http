@@ -14,9 +14,9 @@ POST http://localhost:3000/coffees
 Content-Type: application/json
 
 {
-"name": "Old Florida Roast",
-"brand": "Buddy Brew",
-"flavors": ["caramel"]
+"name": "Coffee #4",
+"brand": "Nest",
+"flavors": ["caramel", "chocolate"]
 }
 
 # Patch a coffee
