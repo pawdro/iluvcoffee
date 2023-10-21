@@ -14,7 +14,7 @@ import { CoffeesService } from './coffees.service';
 import { CreateCoffeeDto } from './dto/create-coffee.dto';
 import { UpdateCoffeeDto } from './dto/update-coffee.dto';
 import { PaginationQueryDto } from './common/dto/pagination-query.dto';
-import { Public } from 'src/common/decorators/public.decorator';
+// import { Public } from 'src/common/decorators/public.decorator';
 import { ParseIntPipe } from 'src/common/pipes/parse-int.pipe';
 
 // @UsePipes(ValidationPipe)
@@ -22,14 +22,13 @@ import { ParseIntPipe } from 'src/common/pipes/parse-int.pipe';
 export class CoffeesController {
   constructor(private readonly coffeesService: CoffeesService) {}
 
-  @Public()
+  // @Public()
   @Get()
   async findAll(@Query() paginationQueryDto: PaginationQueryDto) {
-    await new Promise((resolve) => setTimeout(resolve, 5000));
     return this.coffeesService.findAll(paginationQueryDto);
   }
 
-  @Public()
+  // @Public()
   @Get(':id')
   findOne(@Param('id', ParseIntPipe) id: number) {
     console.log(id);
