@@ -7,7 +7,7 @@ GET http://localhost:3000
 GET http://localhost:3000/coffees
 
 # Get single coffee
-GET http://localhost:3000/coffees/1
+GET http://localhost:3000/coffees/-1
 
 # Post a coffee
 POST http://localhost:3000/coffees
