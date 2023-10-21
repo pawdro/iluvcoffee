@@ -22,9 +22,9 @@ export class CoffeesController {
   constructor(private readonly coffeesService: CoffeesService) {}
 
   @Public()
-  @UsePipes(ValidationPipe)
   @Get()
-  findAll(@Query() paginationQueryDto: PaginationQueryDto) {
+  async findAll(@Query() paginationQueryDto: PaginationQueryDto) {
+    await new Promise((resolve) => setTimeout(resolve, 5000));
     return this.coffeesService.findAll(paginationQueryDto);
   }
 
