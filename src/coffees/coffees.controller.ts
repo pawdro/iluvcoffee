@@ -28,6 +28,7 @@ export class CoffeesController {
     return this.coffeesService.findAll(paginationQueryDto);
   }
 
+  @Public()
   @Get(':id')
   findOne(@Param('id') id: number) {
     return this.coffeesService.findOne(id);
