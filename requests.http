@@ -7,24 +7,24 @@ GET http://localhost:3000
 GET http://localhost:3000/coffees
 
 # Get single coffee
-GET http://localhost:3000/coffees/1
+GET http://localhost:3000/coffees/655a625aa51e5c2735890dc3
 
 # Post a coffee
 POST http://localhost:3000/coffees
 Content-Type: application/json
 
 {
-"name": "Old Florida Roast",
-"brand": "Buddy Brew",
-"flavors": ["caramel"]
+"name": "New Florida Roast",
+"brand": "Kawcia od Pawcia",
+"flavors": ["chocolate", "raspberry"]
 }
 
 # Patch a coffee
-PATCH http://localhost:3000/coffees/1
+PATCH http://localhost:3000/coffees/655a629aa51e5c2735890dc7
 Content-Type: application/json
 {
-"name": "Shipwreck Roast"
+"name": "Kawa miesiąca"
 }
 
 #Delete a coffee
-DELETE http://localhost:3000/coffees/1
+DELETE http://localhost:3000/coffees/655a629aa51e5c2735890dc7
