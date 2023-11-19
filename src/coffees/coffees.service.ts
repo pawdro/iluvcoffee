@@ -17,9 +17,8 @@ export class CoffeesService {
     private readonly coffeeRepository: Repository<Coffee>,
     @InjectRepository(Flavor)
     private readonly flavorRepository: Repository<Flavor>,
-    private readonly dataSource: DataSource,
-  ) // private coffeesConfiguration: ConfigType<typeof coffeesConfig>,) // @Inject(coffeesConfig.KEY)
-  {}
+    private readonly dataSource: DataSource, // private coffeesConfiguration: ConfigType<typeof coffeesConfig>,) // @Inject(coffeesConfig.KEY)
+  ) {}
 
   findAll = (paginationQueryDto: PaginationQueryDto) => {
     const { limit, offset } = paginationQueryDto;
@@ -54,7 +53,8 @@ export class CoffeesService {
       ...createCoffeeDto,
       flavors,
     });
-    this.coffeeRepository.save(coffee);
+
+    return this.coffeeRepository.save(coffee);
   };
 
   update = async (id: number, updateCoffeeDto: UpdateCoffeeDto) => {
@@ -78,6 +78,7 @@ export class CoffeesService {
 
   remove = async (id: number) => {
     const coffee = await this.findOne(id);
+
     return this.coffeeRepository.remove(coffee);
   };
 

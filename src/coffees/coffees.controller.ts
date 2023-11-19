@@ -40,7 +40,6 @@ export class CoffeesController {
   @Get(':id')
   // findOne(@Param('id', ParseIntPipe) id: number) {
   findOne(@Param('id') id: number) {
-    console.log(id);
     return this.coffeesService.findOne(id);
   }
 
@@ -54,7 +53,7 @@ export class CoffeesController {
     @Param('id') id: number,
     @Body(ValidationPipe) updateCoffeeDto: UpdateCoffeeDto,
   ) {
-    this.coffeesService.update(id, updateCoffeeDto);
+    return this.coffeesService.update(id, updateCoffeeDto);
   }
 
   @Delete(':id')
