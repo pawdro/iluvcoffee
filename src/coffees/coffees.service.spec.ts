@@ -4,6 +4,7 @@ import { DataSource, Repository } from 'typeorm';
 import { CoffeesService } from './coffees.service';
 import { Coffee } from './entities/coffee.entity';
 import { Flavor } from './entities/flavor.entity';
+import { NotFoundException } from '@nestjs/common';
 
 type MockRepository<T = any> = Partial<Record<keyof Repository<T>, jest.Mock>>;
 const createMockRepository = <T = any>(): MockRepository<T> => ({
@@ -52,7 +53,18 @@ describe('CoffeesService', () => {
     });
 
     describe('otherwise', () => {
-      it('should throw the "NotFoundException"', async () => {});
+      it('should throw the "NotFoundException"', async () => {
+        const coffeeId = 1;
+        coffeeRepository.findOne.mockReturnValue(undefined);
+
+        try {
+          await service.findOne(coffeeId);
+          expect(false).toBeTruthy();
+        } catch (err) {
+          expect(err).toBeInstanceOf(NotFoundException);
+          expect(err.message).toEqual(`Coffee #${coffeeId} not found`);
+        }
+      });
     });
   });
 });
